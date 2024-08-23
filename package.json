@@ -1,10 +1,11 @@
 {
-  "name":"noder-server",
+  "name": "noder-server",
   "dependencies": {
+    "express": "^4.19.2",
     "lodash": "^4.17.21"
   },
   "scripts": {
-    "start": "nodemon index.js",
-    "dev": "nodemon index.js"
+    "start": "nodemon app.js",
+    "dev": "nodemon app.js"
   }
 }

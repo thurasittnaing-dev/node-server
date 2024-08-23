@@ -58,5 +58,5 @@ server.listen(port, host, (err, data) => {
     console.log(err);
   }
 
-  console.log(`Project is hosting at ${host}:${port}`);
+  console.log(`Project is running at ${host}:${port}`);
 });
