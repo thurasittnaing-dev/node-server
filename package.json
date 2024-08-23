@@ -1,6 +1,7 @@
 {
   "name": "noder-server",
   "dependencies": {
+    "ejs": "^3.1.10",
     "express": "^4.19.2",
     "lodash": "^4.17.21"
   },

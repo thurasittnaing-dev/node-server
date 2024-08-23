@@ -1,37 +1,33 @@
 const express = require("express");
 const { host, port } = require("./config/server");
-
 const app = express();
 
-// Home Route
+// View Engine Setup
+app.set("views", "./views");
+app.set("view engine", "ejs");
+
 app.get("/", (req, res) => {
-  res.sendFile("./views/home.view.html", { root: __dirname });
+  res.render("home");
 });
 
-// About Route
 app.get("/about", (req, res) => {
-  res.sendFile("./views/about.view.html", { root: __dirname });
+  res.render("about");
 });
 
-// Contact Route
 app.get("/contact", (req, res) => {
-  res.sendFile("./views/contact.view.html", { root: __dirname });
+  res.render("contact");
 });
 
-// Contact Us Redirect Route
 app.get("/contact-us", (req, res) => {
   res.redirect("/contact");
 });
 
-// CV Route
 app.get("/cv", (req, res) => {
   res.sendFile("./assets/resume.pdf", { root: __dirname });
 });
 
-// 404 Route
 app.use((req, res) => {
-  res.status(404);
-  res.sendFile("./views/404.view.html", { root: __dirname });
+  res.status(404).render("404");
 });
 
 app.listen(port, () => {
