@@ -1,61 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home Page</title>
-    <style>
-      body {
-        padding: 0;
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        box-sizing: border-box;
-        background-color: black;
-        color: #fff;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100vw;
-        height: 100vh;
-      }
-
-      p {
-        font-size: 3rem;
-        font-weight: normal;
-        user-select: none;
-        margin-bottom: 2rem;
-        text-transform: uppercase;
-        color: red;
-      }
-
-      ul {
-        list-style-type: none;
-      }
-
-      ul li {
-        display: inline-block;
-        margin-right: 1.25rem;
-      }
-
-      ul li a {
-        text-decoration: none;
-        color: #fff;
-        transition: all 0.2s ease-in-out;
-      }
-
-      ul li a:hover {
-        opacity: 0.6;
-      }
-    </style>
-  </head>
+  <%- include('./components/head.ejs') %>
   <body>
     <p>404 Not Found</p>
-    <ul>
-      <li>
-        <a href="/">Go Home</a>
-      </li>
-      <li></li>
-    </ul>
+
+    <%- include('./components/navbar.ejs') %>
   </body>
 </html>

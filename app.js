@@ -1,5 +1,6 @@
 const express = require("express");
 const { host, port } = require("./config/server");
+const { blogs } = require("./data/data");
 const app = express();
 
 // View Engine Setup
@@ -7,15 +8,26 @@ app.set("views", "./views");
 app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
-  res.render("home");
+  res.render("home", {
+    name: "Thura Sitt Naing",
+    title: "Home",
+    active: "home",
+  });
 });
 
 app.get("/about", (req, res) => {
-  res.render("about");
+  res.render("about", {
+    blogs: blogs,
+    title: "About",
+    active: "about",
+  });
 });
 
 app.get("/contact", (req, res) => {
-  res.render("contact");
+  res.render("contact", {
+    title: "Contact",
+    active: "contact",
+  });
 });
 
 app.get("/contact-us", (req, res) => {
@@ -27,7 +39,9 @@ app.get("/cv", (req, res) => {
 });
 
 app.use((req, res) => {
-  res.status(404).render("404");
+  res.status(404).render("404", {
+    title: "404 Not Found",
+  });
 });
 
 app.listen(port, () => {
