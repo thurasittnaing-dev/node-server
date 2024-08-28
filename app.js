@@ -1,11 +1,16 @@
 const express = require("express");
 const { host, port } = require("./config/server");
 const { blogs } = require("./data/data");
+let morgan = require("morgan");
 const app = express();
 
 // View Engine Setup
 app.set("views", "./views");
 app.set("view engine", "ejs");
+
+app.use(morgan("dev"));
+
+app.use(express.static("public"));
 
 app.get("/", (req, res) => {
   res.render("home", {
