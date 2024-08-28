@@ -40,12 +40,13 @@ app.get("/contact-us", (req, res) => {
 });
 
 app.get("/cv", (req, res) => {
-  res.sendFile("./assets/resume.pdf", { root: __dirname });
+  res.sendFile("./public/resume.pdf", { root: __dirname });
 });
 
 app.use((req, res) => {
   res.status(404).render("404", {
     title: "404 Not Found",
+    active: "",
   });
 });
 
