@@ -45,6 +45,8 @@ ul li a:hover {
 }
 
 .about-card {
+  width: 80%;
+  max-width: 40rem;
   margin: 1rem 0;
   border-radius: 0.5rem;
   background-color: rgba(255, 255, 255, 0.2);
@@ -62,4 +64,17 @@ ul li a:hover {
   font-size: 0.75rem;
   font-weight: 400;
   opacity: 0.6;
+}
+
+.blog-detail-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  opacity: 0.8;
+  color: red;
+}
+
+
+.blog-link {
+  color: red;
+  font-size: 0.8rem;
 }

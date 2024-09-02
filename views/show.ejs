@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./components/head.ejs') %>
+  <body>
+    <!-- <h3 class="blog-detail-title">Blog Detail</h3> -->
+    <!-- Check Blogs Exist? -->
+    <% if(blog) { %>
+    <!-- Loop Blogs -->
+    <div class="about-card">
+      <div class="about-title" style="text-align: center">
+        <%= blog.title %>
+      </div>
+      <div class="about-desc"><%= blog.body %></div>
+
+      <div style="margin-top: 20px">
+        <a href="/blogs" class="blog-link">back blogs</a>
+      </div>
+    </div>
+    <!-- End Check -->
+    <% }%>
+
+    <!-- Nav Bar  -->
+    <%- include('./components/navbar.ejs') %>
+  </body>
+</html>

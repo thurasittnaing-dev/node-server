@@ -42,8 +42,8 @@ app.get("/", (req, res) => {
   });
 });
 
-// ************ Blog View
-app.get("/blog", async (req, res) => {
+// ************ Blogs View
+app.get("/blogs", async (req, res) => {
   let blogs = await Blog.find().sort({ createdAt: -1 });
 
   res.render("blog", {
@@ -51,6 +51,22 @@ app.get("/blog", async (req, res) => {
     title: "Blog",
     active: "blog",
   });
+});
+
+// ************ Blog Detail
+app.get("/blogs/:id", async (req, res, next) => {
+  try {
+    let blog = await Blog.findById(req.params.id);
+
+    res.render("show", {
+      blog: blog,
+      title: "Blog Detail",
+      active: "blog",
+    });
+  } catch (e) {
+    console.log(e);
+    next();
+  }
 });
 
 // ************ Contact View
@@ -77,8 +93,10 @@ app.get("/add-blog", async (req, res) => {
 
   let blog = new Blog({
     title: `Title ${blogs.length + 1}`,
-    intro: `Intro ${blogs.length + 1}`,
-    body: `In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document. `,
+    intro: `In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document. ${
+      blogs.length + 1
+    }`,
+    body: `In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document. In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document. In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document. In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document. In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document. In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document. In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document. In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document. In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document. In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document. In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document. `,
   });
 
   await blog.save();
