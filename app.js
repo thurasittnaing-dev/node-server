@@ -53,6 +53,18 @@ app.get("/blogs", async (req, res) => {
   });
 });
 
+// ************ Blog Delete
+app.post("/blogs/:id/delete", async (req, res, next) => {
+  try {
+    await Blog.findByIdAndDelete(req.params.id);
+
+    res.redirect("/blogs");
+  } catch (e) {
+    console.log(e);
+    next();
+  }
+});
+
 // ************ Blog Detail
 app.get("/blogs/:id", async (req, res, next) => {
   try {
@@ -100,7 +112,7 @@ app.get("/add-blog", async (req, res) => {
   });
 
   await blog.save();
-  res.redirect("blog");
+  res.redirect("/blogs");
 });
 
 // ************ 404 View

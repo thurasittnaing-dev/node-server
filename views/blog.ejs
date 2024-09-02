@@ -9,7 +9,14 @@
     <!-- About Card -->
     <a href="/blogs/<%= blog.id %>" style="color: #fff; text-decoration: none">
       <div class="about-card">
-        <div class="about-title"><%= blog.title %></div>
+        <div class="blog-head-container">
+          <div class="about-title"><%= blog.title %></div>
+          <div>
+            <form action="/blogs/<%= blog.id %>/delete" method="POST">
+              <button type="submit" class="delete-btn">Delete</button>
+            </form>
+          </div>
+        </div>
         <div class="about-desc"><%= blog.intro %></div>
       </div>
     </a>
