@@ -21,7 +21,7 @@ mongoose
     });
   })
   .catch((err) => {
-    console.log("EEE ", err);
+    console.log("Error - ", err);
   });
 
 // View Engine Folders
@@ -36,7 +36,7 @@ app.use(morgan("dev"));
 // Static Path
 app.use(express.static("public"));
 
-// ************ Home Page
+// Home Page
 app.get("/", (req, res) => {
   res.render("home", {
     name: "Thura Sitt Naing",
@@ -49,12 +49,12 @@ app.use("/blogs", blogRoutes);
 
 app.use(pageRoutes);
 
-// ************ CV
+//  CV
 app.get("/cv", (req, res) => {
   res.sendFile("./public/resume.pdf", { root: __dirname });
 });
 
-// ************ 404
+//  404
 app.use((req, res) => {
   res.status(404).render("404", {
     title: "404 Not Found",
